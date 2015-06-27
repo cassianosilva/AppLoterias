@@ -1,0 +1,301 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="AppTrabalhoG2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <phone:Pivot Name="pvtSorteios" Title="RESULTADOS DAS LOTERIAS" LoadedPivotItem="LoadedPivotItem">
+
+            <phone:PivotItem Name="MegaSena" Header="Mega-Sena" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            	<ScrollViewer HorizontalAlignment="Left" Height="531" VerticalAlignment="Top" Width="456">
+            		<Grid Height="1063" Width="456">
+            			<TextBlock x:Name="titleConcursoMS" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,10,0,0" Width="398" FontFamily="Arial Rounded MT Bold" FontSize="40" TextAlignment="Center" Text="Concurso nº "/>
+            			<StackPanel HorizontalAlignment="Left" Height="115" Margin="10,429,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock Height="39" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" FontSize="32" Text="Números Sorteados" TextAlignment="Center"/>
+            				<Grid HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="436" Background="#FF000B7E">
+            					<TextBlock x:Name="txtN1MS" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="48" TextAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+            					<TextBlock x:Name="txtN2MS" HorizontalAlignment="Left" Height="51" Margin="82,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="48" FontFamily="Arial Rounded MT Bold"/>
+            					<TextBlock x:Name="txtN3MS" HorizontalAlignment="Left" Height="51" Margin="152,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontFamily="Arial Rounded MT Bold" FontSize="48"/>
+            					<TextBlock x:Name="txtN4MS" HorizontalAlignment="Left" Height="51" Margin="220,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontFamily="Arial Rounded MT Bold" FontSize="48"/>
+            					<TextBlock x:Name="txtN5MS" HorizontalAlignment="Left" Height="51" Margin="293,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontFamily="Arial Rounded MT Bold" FontSize="48"/>
+            					<TextBlock x:Name="txtN6MS" HorizontalAlignment="Left" Height="51" Margin="368,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontFamily="Arial Rounded MT Bold" FontSize="48"/>
+            				</Grid>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="339" Margin="10,562,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock Height="42" TextWrapping="Wrap" Text="Prêmios" Width="436" FontFamily="Arial Rounded MT Bold" FontSize="32" HorizontalAlignment="Right" TextAlignment="Center"/>
+            				<Grid HorizontalAlignment="Left" Height="64" Width="436" Background="#FF000B7E" UseLayoutRounding="True" ShowGridLines="True">
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="62*"/>
+            						<ColumnDefinition Width="67*"/>
+            						<ColumnDefinition Width="79*"/>
+            					</Grid.ColumnDefinitions>
+            					<Grid.RowDefinitions>
+            						<RowDefinition/>
+            					</Grid.RowDefinitions>
+            					<TextBlock HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Rounded MT Bold" FontSize="20" TextAlignment="Center" FontWeight="Bold">
+            						<Run Text="Faixa"/>
+            						<Run Text="de "/>
+            						<Run Text="Acertos"/>
+            					</TextBlock>
+            					<TextBlock Grid.Column="2" Height="28" TextWrapping="Wrap" Text="Valor (R$)" VerticalAlignment="Center" Margin="10,18" FontFamily="Arial Rounded MT Bold" TextAlignment="Center"/>
+            					<TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" TextWrapping="Wrap" Text="Nº de vencedores" VerticalAlignment="Top" Width="120" FontFamily="Arial Rounded MT Bold" TextAlignment="Center"/>
+            				</Grid>
+            				<Grid HorizontalAlignment="Left" Height="180" Width="436" ShowGridLines="True">
+            					<Grid.RowDefinitions>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            					</Grid.RowDefinitions>
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="62*"/>
+            						<ColumnDefinition Width="67*"/>
+            						<ColumnDefinition Width="79*"/>
+            					</Grid.ColumnDefinitions>
+            					<TextBlock HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" TextAlignment="Center" Text="Sena"/>
+            					<TextBlock HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Quina" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" Text="Quadra" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtNumGanhadorSena" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtNumGanhadorQuina" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtNumGanhadorQuadra" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhadorSena" Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhadorQuina" Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhadorQuadra" Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            				</Grid>
+            				<TextBlock x:Name="txtArrecTotalMS" HorizontalAlignment="Left" Height="26" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" TextAlignment="Center" Text="Arrecadação Total: R$ "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="129" Margin="10,930,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtValorAcumProxMS" HorizontalAlignment="Left" Height="47" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" FontSize="20" TextAlignment="Center" Text="Valor acumulado para o próximo concurso de final zero: R$ "/>
+            				<TextBlock x:Name="txtValorAcumMSVirada" HorizontalAlignment="Left" Height="48" Margin="10,30,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" TextAlignment="Center" VerticalAlignment="Bottom" Text="Valor acumulado para o sorteio da Mega da Virada: R$ "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="101" Margin="10,105,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtDataSorteio" HorizontalAlignment="Left" Height="25" Margin="10,0,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" TextAlignment="Center" Text="Sorteio realizado no dia "/>
+            				<TextBlock x:Name="txtCidadeSorteioMS" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" Text="Cidade: " TextAlignment="Center"/>
+            				<TextBlock x:Name="txtLocalSorteioMS" HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" TextAlignment="Center" Text="Local: "/>
+            			</StackPanel>
+            			<StackPanel x:Name="SpAcumulouMS" HorizontalAlignment="Left" Height="64" Margin="10,242,0,0" VerticalAlignment="Top" Width="436" Visibility="Collapsed">
+            				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="416" TextAlignment="Center" Margin="10,0,0,0" FontSize="32">
+            					<Run FontFamily="Arial Rounded MT Bold" Text="ACUMULOU"/>
+            					<Run FontFamily="Arial Rounded MT Bold" Text="!"/>
+            				</TextBlock>
+            				<TextBlock x:Name="txtValorAcumMS" HorizontalAlignment="Left" Height="25" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" FontSize="21.333" TextAlignment="Center" Text="Valor acumulado: R$ "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="80" Margin="10,330,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtEstPremioMS" HorizontalAlignment="Left" Height="49" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontSize="21.333" FontFamily="Arial Rounded MT Bold" TextAlignment="Center" Text="Estimativa de prêmio para o próximo concurso: R$ "/>
+            				<TextBlock x:Name="txtDataProxMS" HorizontalAlignment="Left" Height="30" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" TextAlignment="Center" FontFamily="Arial Rounded MT Bold" Text="Data do próximo concurso: "/>
+            			</StackPanel>
+                    
+            		</Grid>
+            	</ScrollViewer>
+            </phone:PivotItem>
+
+            <phone:PivotItem Name="Quina" Header="Quina">
+                <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" Width="456" Margin="0">
+            		<Grid Height="982" Width="456">
+            			<TextBlock x:Name="titleConcursoQU" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,10,0,0" Width="398" FontFamily="Arial Rounded MT Bold" FontSize="40" TextAlignment="Center" Text="Concurso nº "/>
+            			<StackPanel HorizontalAlignment="Left" Height="115" Margin="10,429,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock Height="39" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" FontSize="32" Text="Números Sorteados" TextAlignment="Center"/>
+            				<Grid HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="436" Background="#FF43025B">
+            					<TextBlock x:Name="txtN1QU" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="48" TextAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+            					<TextBlock x:Name="txtN2QU" HorizontalAlignment="Left" Height="51" Margin="96,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="48" FontFamily="Arial Rounded MT Bold"/>
+            					<TextBlock x:Name="txtN3QU" HorizontalAlignment="Left" Height="51" Margin="189,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontFamily="Arial Rounded MT Bold" FontSize="48"/>
+            					<TextBlock x:Name="txtN4QU" HorizontalAlignment="Left" Height="51" Margin="279,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontFamily="Arial Rounded MT Bold" FontSize="48"/>
+            					<TextBlock x:Name="txtN5QU" HorizontalAlignment="Left" Height="51" Margin="368,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontFamily="Arial Rounded MT Bold" FontSize="48"/>
+            				</Grid>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="339" Margin="10,562,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock Height="42" TextWrapping="Wrap" Text="Prêmios" Width="436" FontFamily="Arial Rounded MT Bold" FontSize="32" HorizontalAlignment="Right" TextAlignment="Center"/>
+            				<Grid HorizontalAlignment="Left" Height="64" Width="436" Background="#FF43025B" UseLayoutRounding="True" ShowGridLines="True">
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="62*"/>
+            						<ColumnDefinition Width="67*"/>
+            						<ColumnDefinition Width="79*"/>
+            					</Grid.ColumnDefinitions>
+            					<Grid.RowDefinitions>
+            						<RowDefinition/>
+            					</Grid.RowDefinitions>
+            					<TextBlock HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Rounded MT Bold" FontSize="20" TextAlignment="Center" FontWeight="Bold">
+            						<Run Text="Faixa"/>
+            						<Run Text="de "/>
+            						<Run Text="Acertos"/>
+            					</TextBlock>
+            					<TextBlock Grid.Column="2" Height="28" TextWrapping="Wrap" Text="Valor (R$)" VerticalAlignment="Center" Margin="10,18" FontFamily="Arial Rounded MT Bold" TextAlignment="Center"/>
+            					<TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" TextWrapping="Wrap" Text="Nº de vencedores" VerticalAlignment="Top" Width="120" FontFamily="Arial Rounded MT Bold" TextAlignment="Center"/>
+            				</Grid>
+            				<Grid HorizontalAlignment="Left" Height="180" Width="436" ShowGridLines="True">
+            					<Grid.RowDefinitions>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            					</Grid.RowDefinitions>
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="62*"/>
+            						<ColumnDefinition Width="67*"/>
+            						<ColumnDefinition Width="79*"/>
+            					</Grid.ColumnDefinitions>
+            					<TextBlock HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" TextAlignment="Center" Text="Quina"/>
+            					<TextBlock HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Quadra" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" Text="Terno" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtNumGanhadorQuinaQU" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtNumGanhadorQuadraQU" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtNumGanhadorTernoQU" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhadorQuinaQU" Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhadorQuadraQU" Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhadorTernoQU" Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            				</Grid>
+            				<TextBlock x:Name="txtArrecTotalQU" HorizontalAlignment="Left" Height="26" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" TextAlignment="Center" Text="Arrecadação Total: R$ "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="49" Margin="10,930,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtValorAcumProxQU" HorizontalAlignment="Left" Height="47" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" FontSize="20" TextAlignment="Center" Text="Valor acumulado para o sorteio especial de São João: R$ "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="101" Margin="10,105,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtDataSorteioQU" HorizontalAlignment="Left" Height="25" Margin="10,0,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" TextAlignment="Center" Text="Sorteio realizado no dia "/>
+            				<TextBlock x:Name="txtCidadeSorteioQU" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" Text="Cidade: " TextAlignment="Center"/>
+            				<TextBlock x:Name="txtLocalSorteioQU" HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" TextAlignment="Center" Text="Local: "/>
+            			</StackPanel>
+            			<StackPanel x:Name="SpAcumulouQU" HorizontalAlignment="Left" Height="64" Margin="10,242,0,0" VerticalAlignment="Top" Width="436" Visibility="Collapsed">
+            				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="416" TextAlignment="Center" Margin="10,0,0,0" FontSize="32">
+            					<Run FontFamily="Arial Rounded MT Bold" Text="ACUMULOU"/>
+            					<Run FontFamily="Arial Rounded MT Bold" Text="!"/>
+            				</TextBlock>
+            				<TextBlock x:Name="txtValorAcumQU" HorizontalAlignment="Left" Height="25" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" FontSize="21.333" TextAlignment="Center" Text="Valor acumulado: R$ "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="80" Margin="10,330,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtEstPremioQU" HorizontalAlignment="Left" Height="49" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontSize="21.333" FontFamily="Arial Rounded MT Bold" TextAlignment="Center" Text="Estimativa de prêmio para o próximo concurso: R$ "/>
+            				<TextBlock x:Name="txtDataProxQU" HorizontalAlignment="Left" Height="30" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" TextAlignment="Center" FontFamily="Arial Rounded MT Bold" Text="Data do próximo concurso: "/>
+            			</StackPanel>
+                    
+            		</Grid>
+            	</ScrollViewer>
+            </phone:PivotItem>
+            
+            <phone:PivotItem Name="Timemania" Header="Timemania">
+                <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" Width="456" Margin="0">
+            		<Grid Height="1120" Width="456">
+            			<TextBlock x:Name="titleConcursoTM" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,10,0,0" Width="398" FontFamily="Arial Rounded MT Bold" FontSize="40" TextAlignment="Center" Text="Concurso nº "/>
+            			<StackPanel HorizontalAlignment="Left" Height="115" Margin="10,429,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock Height="39" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" FontSize="32" Text="Números Sorteados" TextAlignment="Center"/>
+            				<Grid HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="436" Background="#FF993A04">
+            					<TextBlock x:Name="txtN1TM" HorizontalAlignment="Left" Height="41" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="48" FontSize="37.333" TextAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+            					<TextBlock x:Name="txtN2TM" HorizontalAlignment="Left" Height="41" Margin="69,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontSize="37.333" FontFamily="Arial Rounded MT Bold"/>
+            					<TextBlock x:Name="txtN3TM" HorizontalAlignment="Left" Height="41" Margin="132,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontFamily="Arial Rounded MT Bold" FontSize="37.333"/>
+            					<TextBlock x:Name="txtN4TM" HorizontalAlignment="Left" Height="41" Margin="193,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontFamily="Arial Rounded MT Bold" FontSize="37.333"/>
+            					<TextBlock x:Name="txtN5TM" HorizontalAlignment="Left" Height="41" Margin="255,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontFamily="Arial Rounded MT Bold" FontSize="37.333"/>
+            					<TextBlock x:Name="txtN6TM" HorizontalAlignment="Left" Height="41" Margin="316,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontFamily="Arial Rounded MT Bold" FontSize="37.333"/>
+            					<TextBlock x:Name="txtN7TM" HorizontalAlignment="Left" Height="41" Margin="378,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontFamily="Arial Rounded MT Bold" FontSize="37.333"/>
+            				</Grid>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="339" Margin="10,562,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock Height="42" TextWrapping="Wrap" Text="Prêmios" Width="436" FontFamily="Arial Rounded MT Bold" FontSize="32" HorizontalAlignment="Right" TextAlignment="Center"/>
+            				<Grid HorizontalAlignment="Left" Height="64" Width="436" Background="#FF993A04" UseLayoutRounding="True" ShowGridLines="True">
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="130*"/>
+            						<ColumnDefinition Width="127*"/>
+            						<ColumnDefinition Width="179*"/>
+            					</Grid.ColumnDefinitions>
+            					<Grid.RowDefinitions>
+            						<RowDefinition/>
+            					</Grid.RowDefinitions>
+            					<TextBlock HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Rounded MT Bold" FontSize="20" TextAlignment="Center" FontWeight="Bold">
+            						<Run Text="Faixa"/>
+            						<Run Text="de "/>
+            						<Run Text="Acertos"/>
+            					</TextBlock>
+            					<TextBlock Grid.Column="2" Height="28" TextWrapping="Wrap" Text="Valor (R$)" VerticalAlignment="Center" Margin="10,18" FontFamily="Arial Rounded MT Bold" TextAlignment="Center"/>
+            					<TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="0,10,0,0" TextWrapping="Wrap" Text="Nº de vencedores" VerticalAlignment="Top" Width="127" FontFamily="Arial Rounded MT Bold" TextAlignment="Center"/>
+            				</Grid>
+            				<Grid HorizontalAlignment="Left" Height="203" Width="436" ShowGridLines="True">
+            					<Grid.RowDefinitions>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            					</Grid.RowDefinitions>
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="130*"/>
+            						<ColumnDefinition Width="127*"/>
+            						<ColumnDefinition Width="179*"/>
+            					</Grid.ColumnDefinitions>
+            					<TextBlock HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" Text="7 acertos" TextAlignment="Center"/>
+            					<TextBlock HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="6 acertos" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock HorizontalAlignment="Left" Height="31" Margin="10,9,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" Text="5 acertos" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtNumGanhador7TM" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" FontFamily="Arial Unicode MS" TextAlignment="Center" Text="0"/>
+            					<TextBlock x:Name="txtNumGanhador6TM" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" FontFamily="Arial Unicode MS" TextAlignment="Center" Text="567"/>
+            					<TextBlock x:Name="txtNumGanhador5TM" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" TextAlignment="Center" Text="345"/>
+            					<TextBlock x:Name="txtValorGanhador7TM" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhador6TM" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhador5TM" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="4 acertos" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Arial Unicode MS" TextAlignment="Center" Text="3 acertos"/>
+            					<TextBlock x:Name="txtNumGanhador4TM" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" TextAlignment="Center" FontFamily="Arial Unicode MS" Text="4567"/>
+            					<TextBlock x:Name="txtNumGanhador3TM" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" Text="45767" VerticalAlignment="Top" Width="107" TextAlignment="Center" FontFamily="Arial Unicode MS"/>
+            					<TextBlock x:Name="txtValorGanhador4TM" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" FontFamily="Arial Unicode MS" TextAlignment="Center"/>
+            					<TextBlock x:Name="txtValorGanhador3TM" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" TextAlignment="Center"/>
+            				</Grid>
+            				<TextBlock x:Name="txtArrecTotalTM" HorizontalAlignment="Left" Height="26" Margin="10,5,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" TextAlignment="Center">
+            					<Run Text="Arrecadação Total: R$ "/>
+            				</TextBlock>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="52" Margin="10,1058,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtValorAcumProxTM" HorizontalAlignment="Left" Height="47" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" FontSize="20" TextAlignment="Center" Text="Valor acumulado para o próximo concurso de final cinco: R$ "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="101" Margin="10,105,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtDataSorteioTM" HorizontalAlignment="Left" Height="25" Margin="10,0,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" TextAlignment="Center" Text="Sorteio realizado no dia "/>
+            				<TextBlock x:Name="txtCidadeSorteioTM" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" Text="Cidade: " TextAlignment="Center"/>
+            				<TextBlock x:Name="txtLocalSorteioTM" HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" TextWrapping="Wrap" Width="426" FontFamily="Arial Rounded MT Bold" FontSize="24" TextAlignment="Center" Text="Local: "/>
+            			</StackPanel>
+            			<StackPanel x:Name="SpAcumulouTM" HorizontalAlignment="Left" Height="64" Margin="10,242,0,0" VerticalAlignment="Top" Width="436" Visibility="Collapsed">
+            				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="416" TextAlignment="Center" Margin="10,0,0,0" FontSize="32">
+            					<Run FontFamily="Arial Rounded MT Bold" Text="ACUMULOU"/>
+            					<Run FontFamily="Arial Rounded MT Bold" Text="!"/>
+            				</TextBlock>
+            				<TextBlock x:Name="txtValorAcumTM" HorizontalAlignment="Left" Height="25" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontFamily="Arial Rounded MT Bold" FontSize="21.333" TextAlignment="Center" Text="Valor acumulado: R$ "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="80" Margin="10,330,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtEstPremioTM" HorizontalAlignment="Left" Height="49" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" FontSize="21.333" FontFamily="Arial Rounded MT Bold" TextAlignment="Center">
+            					<Run Text="Estimativa de prêmio para o próximo concurso: "/>
+            					<Run Text="R$ "/>
+            				</TextBlock>
+            				<TextBlock x:Name="txtDataProxTM" HorizontalAlignment="Left" Height="30" Margin="10,0,0,0" TextWrapping="Wrap" Width="416" TextAlignment="Center" FontFamily="Arial Rounded MT Bold" Text="Data do próximo concurso: "/>
+            			</StackPanel>
+            			<StackPanel HorizontalAlignment="Left" Height="147" Margin="10,906,0,0" VerticalAlignment="Top" Width="436">
+            				<TextBlock x:Name="txtNomeTimeTM" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Width="436" FontFamily="Arial Rounded MT Bold" TextAlignment="Center" Text="Time do Coração: " Margin="0,10,0,0"/>
+            				<TextBlock x:Name="txtGanhadoresTimeTM" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="Número de Ganhadores: " Width="436" FontFamily="Arial Rounded MT Bold" TextAlignment="Center" Margin="0,22,0,0"/>
+            				<TextBlock x:Name="txtValorTimeTM" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Width="436" FontFamily="Arial Rounded MT Bold" TextAlignment="Center" Margin="0,15,0,0">
+            					<Run Text="Valor do Prêmio: R$ "/>
+            				</TextBlock>
+            			</StackPanel>
+                    
+            		</Grid>
+            	</ScrollViewer>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton IconUri="/Icons/favs.addto.png"
+                                            Text="adicionar"
+                                            Click="appBarAddFav_Click"/>
+
+            <shell:ApplicationBarIconButton IconUri="/Icons/favs.png"
+                                            Text="favoritos"
+                                            Click="appBarVerFav_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Icons/questionmark.png"
+                                            Text="sobre"
+                                            Click="appBarSobre_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
